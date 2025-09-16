@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Mon resto</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Le Délice Français</div>
+            <nav>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#entrees">Entrées</a></li>
+                    <li><a href="#plats">Plats</a></li>
+                    <li><a href="#desserts">Desserts</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <button class="open-modal-button" onclick="openModalWithDescription('Modale de commande en ligne', 'Voici le formulaire de commande en ligne \n\n Promotion en cours: Les frais de livraison sont gratuits')">Ouvrir notre magnifique modale</button>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="modalTitle"></div>
+                    <button class="close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+                    <button class="btn btn-primary" onclick="confirmAction()">Confirmer</button>
+                </div>
+            </div>
+        </div>
+        <section class="hero" id="accueil">
+            <h1>Bienvenue au Délice Français</h1>
+            <p>Découvrez notre cuisine raffinée inspirée des traditions françaises, préparée avec des ingrédients frais et de saison par nos chefs passionnés.</p>
+        </section>
+
+        <section class="menu-section" id="entrees">
+            <div class="section-header">
+                <h2>Entrées</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.tastet.ca/_/rs:fit:1080:720:false:0/plain/local:///2025/02/tastet-molenne-35-websize.jpg@jpg" alt="Foie gras">
+                    <div class="menu-content">
+                        <h3>Foie Gras de Canard</h3>
+                        <div class="price">28€</div>
+                        <p>Foie gras de canard mi-cuit, accompagné d'un chutney de figues et pain brioché toasté. Une entrée délicate aux saveurs authentiques.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1559847844-d0c6b6bca133?w=500&h=300&fit=crop" alt="Escargots">
+                    <div class="menu-content">
+                        <h3>Escargots de Bourgogne</h3>
+                        <div class="price">18€</div>
+                        <p>Six escargots de Bourgogne préparés au beurre persillé à l'ail, servis dans leur coquille avec du pain de campagne grillé.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&h=300&fit=crop" alt="Soupe à l'oignon">
+                    <div class="menu-content">
+                        <h3>Soupe à l'Oignon Gratinée</h3>
+                        <div class="price">14€</div>
+                        <p>Soupe traditionnelle aux oignons caramélisés, gratinée au fromage gruyère et servie avec des croûtons de pain artisanal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="plats">
+            <div class="section-header">
+                <h2>Plats Principaux</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=300&fit=crop" alt="Coq au vin">
+                    <div class="menu-content">
+                        <h3>Coq au Vin de Bourgogne</h3>
+                        <div class="price">32€</div>
+                        <p>Coq fermier mijoté dans un vin rouge de Bourgogne avec champignons, lardons et petits oignons grelots. Accompagné de pommes de terre sautées.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=300&fit=crop" alt="Boeuf bourguignon">
+                    <div class="menu-content">
+                        <h3>Bœuf Bourguignon</h3>
+                        <div class="price">29€</div>
+                        <p>Bœuf de Charolais mijoté lentement dans un vin rouge avec carottes, champignons et bouquet garni. Servi avec une purée de pommes de terre.</p>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="zoomOnPhoto('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&h=400&fit=crop')">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&h=300&fit=crop" alt="Sole meunière">
+                    <div class="menu-content">
+                        <h3>Sole Meunière</h3>
+                        <div class="price">38€</div>
+                        <p>Sole fraîche de la côte atlantique, meunière au beurre noisette, citron et persil frais. Accompagnée de légumes de saison et pommes vapeur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="desserts">
+            <div class="section-header">
+                <h2>Desserts</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&h=300&fit=crop" alt="Crème brûlée">
+                    <div class="menu-content">
+                        <h3>Crème Brûlée à la Vanille</h3>
+                        <div class="price">12€</div>
+                        <p>Crème brûlée onctueuse parfumée à la vanille de Madagascar, caramélisée au dernier moment et servie avec des sablés maison.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=500&h=300&fit=crop" alt="Tarte tatin">
+                    <div class="menu-content">
+                        <h3>Tarte Tatin aux Pommes</h3>
+                        <div class="price">14€</div>
+                        <p>Tarte tatin traditionnelle aux pommes Golden caramélisées, pâte sablée croustillante. Servie tiède avec une boule de glace vanille.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=300&fit=crop" alt="Mousse au chocolat">
+                    <div class="menu-content">
+                        <h3>Mousse au Chocolat Noir</h3>
+                        <div class="price">11€</div>
+                        <p>Mousse aérienne au chocolat noir 70% de cacao, chantilly maison et copeaux de chocolat. Un classique revisité par notre pâtissier.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <h2>Prêt à déguster ?</h2>
+            <p>Réservez votre table ou passez votre commande dès maintenant</p>
+            <br>
+            <a href="#" class="order-btn" onclick="alert('Fonction de commande non disponible - Page de démonstration')">Commander Maintenant</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Le Délice Français. Tous droits réservés. | 123 Rue de la Gastronomie, 75001 Paris | Tél: 01 23 45 67 89</p>
+    </footer>
+
+    <script src="modal.js"></script>
+</body>
+</html>
